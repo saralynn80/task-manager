@@ -17,6 +17,8 @@ class CreateTasksTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('name');
             $table->text('body');
+            $table->date('due_date');
+            $table->text('general_duedate');
             $table->timestamps();
 
             // If a user deletes their account, we want their tasks to be deleted too
