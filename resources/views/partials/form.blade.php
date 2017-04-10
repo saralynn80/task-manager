@@ -1,5 +1,4 @@
-<!-- Temporary user id -->
-{!! Form::hidden('user_id', 1) !!}
+
 
 <!-- Task name -->
 <div class="form-group">

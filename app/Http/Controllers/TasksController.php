@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Task;
 use App\Http\Requests;
 use App\Http\Requests\TaskRequest;
@@ -14,6 +15,7 @@ class TasksController extends Controller
     // Return all tasks when user is at /tasks URI
 	public function index()
 	{
+		// return \Auth::user();
 		$tasks = Task::latest('due_date')->get();
 		return view('tasks.index', compact('tasks'));
 	}
@@ -33,7 +35,12 @@ class TasksController extends Controller
 	// Stores values in db, redirects user
 	public function store(TaskRequest $request)
 	{
-		Task::create($request->all());
+		// Reference user
+		$task = new Task($request->all());
+
+		// Get the authenticated user's tasks and save a new one
+		Auth::user()->tasks()->save($task);
+
 		return redirect('tasks');
 	}
 
