@@ -89,6 +89,7 @@
 
     </head>
     <body>
+
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -148,17 +149,14 @@
                <a href="/nextmonth">Next Month</a>
                <a href="/someday">Someday</a>
            </div>
-           
+
            <hr />
 
-           <div>
-            @yield('content')
+            <div>
+                @yield('content')
+            </div>
         </div>
 
-    </div>
-
-
-</div>
 
 <!-- JavaScripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
