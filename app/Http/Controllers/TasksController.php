@@ -11,11 +11,17 @@ use Illuminate\HttpResponse;
 use App\Http\Controllers\Controller;
 
 class TasksController extends Controller
-{
-    // Return all tasks when user is at /tasks URI
+{	
+
+	public function __construct()
+	{
+		//$this->middleware('auth', ['only' => 'create']);
+		$this->middleware('auth');
+	}
+
 	public function index()
 	{
-		// return \Auth::user();
+		//return \Auth::user();
 		$tasks = Task::latest('due_date')->get();
 		return view('tasks.index', compact('tasks'));
 	}

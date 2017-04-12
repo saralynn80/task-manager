@@ -11,6 +11,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    // Any middleware added to this array will be added to every single request
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \App\Http\Middleware\EncryptCookies::class,
@@ -25,9 +26,12 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    // This is when middleware is attached to specific routes
+    // Reference key from controller
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'manager' => \App\Http\Middleware\RedirectIfNotAManager::class,
     ];
 }
